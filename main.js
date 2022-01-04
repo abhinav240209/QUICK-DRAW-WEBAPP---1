@@ -8,5 +8,43 @@ timer_counter=0;
 sketch_of_array=quick_draw_data_set[random_no];
 console.log(sketch_of_array);
 document.getElementById("sketchtobedrawn").innerHTML=sketch_of_array;
+timer_check="";
+
+function setup() {
+    canvas=createCanvas(280,280);
+    canvas.parent("canvas");
+}
 
 
+function preload() {
+
+}
+
+function draw() {
+    function check_sketch() {
+            timer_counter++;
+            document.getElementById("time").innerHTML=timer_counter;
+            console.log(timer_counter);
+            if(timer_counter==400) {
+                timer_counter=0;
+                timer_check="completed";
+            }
+            if(timer_check=="completed"){
+                timer_check="";
+                answer_check="";
+                update_canvas();
+            }
+    }
+     
+    if (drawn_sketch==sketch_of_array) {
+        answer_holder="set";
+        score++;
+        document.getElementById("score").innerHTML=score;
+
+    }
+}
+
+
+function update_canvas() {
+    document.getElementById("canvas").style="background-color:white";
+}
